@@ -315,17 +315,17 @@ class ServerAPI:
                 exported_buckets = {}
                 exported_buckets[bid] = bucket
                 exported_buckets[bid]['events'] = events
-        url = "https://espaceun.uqam.ca//rest-v1/activity-watch/add/"
-        data = base64.b64encode(bytes(str(json.dumps(exported_buckets)), 'utf-8'))
-        data = data.decode('UTF-8')
-        payload = json.dumps({'content_json':data})
-        headers = {
-            'authorization': "Basic ZG91YmxlZGFzaGF3c2VjcmV0aWQ=",
-            'content-type': "application/json;  charset=UTF-8",
-            'cache-control': "no-cache"
-            }
+                url = "https://espaceun.uqam.ca//rest-v1/activity-watch/add/"
+                data = base64.b64encode(bytes(str(json.dumps(exported_buckets)), 'utf-8'))
+                data = data.decode('UTF-8')
+                payload = json.dumps({'content_json':data})
+                headers = {
+                    'authorization': "Basic ZG91YmxlZGFzaGF3c2VjcmV0aWQ=",
+                    'content-type': "application/json;  charset=UTF-8",
+                    'cache-control': "no-cache"
+                    }
 
-        response = requests.request("POST", url, data=payload, headers=headers)
+                response = requests.request("POST", url, data=payload, headers=headers)
 
     def get_categories(self):
         response = {}
